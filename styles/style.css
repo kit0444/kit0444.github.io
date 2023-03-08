@@ -1,0 +1,51 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+li {
+    display: inline;
+}
+li a{
+    display: inline;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 10px 15px;
+}
+body {
+    margin: 0;
+}
+li a:hover {
+    background-color: rgb(164, 253, 255);
+}
+h1 {
+    margin: 0;
+    padding: 10px 15px;
+    text-align:left;
+}
+h3 {
+    padding: 10px 15px;
+    text-align:left;
+}
+h4 {
+    padding: 10px 15px;
+    text-align:left;
+}
+p {
+    padding: 10px 15px;
+    text-align:left;
+}
+.header {
+    
+    background-image: linear-gradient(to bottom, pink,white);
+    background-repeat: no-repeat;
+    margin: 0;
+}
+a:link, a:visited, a:hover, a:active {
+    color: rgb(73, 73, 73);
+    text-decoration: none; 
+}
+img {
+    width: 50%;
+}
