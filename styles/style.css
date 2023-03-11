@@ -1,51 +1,99 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
+* {
+  margin: 0rem;
+  padding: 0rem;
 }
-li {
-    display: inline;
+:root {
+  color-scheme: light dark;
 }
-li a{
-    display: inline;
-    color: rgb(0, 0, 0);
-    text-align: left;
-    padding: 10px 15px;
-}
+
 body {
-    margin: 0;
+  background-image: linear-gradient(pink, white);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 10rem;
 }
-li a:hover {
-    background-color: rgb(164, 253, 255);
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: none;
+    background-color: rgb(35, 35, 35);
+    color: rgb(212, 212, 212);
+  }
 }
-h1 {
-    margin: 0;
-    padding: 10px 15px;
-    text-align:left;
+nav {
+  text-align: left;
 }
-h3 {
-    padding: 10px 15px;
-    text-align:left;
+nav ul {
+  list-style-type: none;
 }
-h4 {
-    padding: 10px 15px;
-    text-align:left;
+
+nav li {
+  display: inline;
 }
+
+nav li a {
+  display: inline;
+  padding: 1rem;
+  text-align: left;
+}
+
+nav li a:hover {
+  background-color: rgb(164, 253, 255);
+}
+nav li a:link,
+nav li a:visited,
+nav li a:hover,
+nav li a:active {
+  color: rgb(70, 70, 70);
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+header,
+main {
+  width: 50rem;
+  margin: 0 auto;
+}
+main .smid {
+  text-align: right;
+}
+.preview p,
+article p {
+  text-indent: 2rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
-    padding: 10px 15px;
-    text-align:left;
+  margin: 1rem 0 1rem 0;
+  text-align: left;
 }
-.header {
-    
-    background-image: linear-gradient(to bottom, pink,white);
-    background-repeat: no-repeat;
-    margin: 0;
+
+.toy {
+  margin: 1rem 1rem 1rem 1rem;
 }
-a:link, a:visited, a:hover, a:active {
-    color: rgb(73, 73, 73);
-    text-decoration: none; 
+
+.toy input,
+.toy button {
+  margin: 0.5rem 0.5rem;
 }
+.preview {
+  margin: 1rem 1rem 1rem 1rem;
+}
+.preview .nDate {
+  text-align: right;
+}
+
 img {
-    width: 50%;
+  width: 50%;
+}
+
+.pcenter {
+  text-align: center;
 }
