@@ -1,7 +1,8 @@
 * {
-  margin: 0rem;
-  padding: 0rem;
+  margin: 0;
+  padding: 0;
 }
+
 :root {
   color-scheme: light dark;
 }
