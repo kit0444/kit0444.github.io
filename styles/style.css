@@ -6,73 +6,102 @@
 
 :root {
   color-scheme: light dark;
+
+  --mpx: min(calc(1rem / 16), 2px);
+  --cmpx: clamp(1px, calc(1rem / 16), 2px);
+  --dark: rgb(32, 32, 32);
+  --light: rgb(224, 224, 224);
 }
 
 body {
   background-image: linear-gradient(pink, white);
   background-repeat: no-repeat;
-  background-position: top;
-  background-size: 100% 10rem;
+  /* background-position: top; */
+  background-size: auto calc(150 * var(--cmpx));
 }
+
 @media (prefers-color-scheme: dark) {
   body {
     background-image: none;
-    background-color: rgb(35, 35, 35);
-    color: rgb(212, 212, 212);
+    background-color: var(--dark);
+    color: var(--light);
   }
 }
+
 nav {
-}
-nav ul {
-  list-style-type: none;
+  block-size: calc(100 * var(--cmpx));
 }
 
-nav li {
+nav > ul {
+  block-size: 100%;
+  list-style-type: none;
+  max-inline-size: calc(700 * var(--cmpx));
+  margin-inline: auto;
+  padding-inline: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav > ul > li {
+  font-size: calc(24 * var(--cmpx));
   display: inline;
 }
 
-nav li a {
-  padding: 1rem;
-  text-align: left;
+nav > ul > li > a {
+  color: var(--dark);
+  text-decoration: none;
 }
 
-nav li a:hover {
-  background-color: rgb(164, 253, 255);
+nav > ul > li > a:hover {
+  background-color: white;
+  box-shadow: 0 0 0 0.5rem white;
 }
-nav li a:link,
-nav li a:visited,
-nav li a:hover,
-nav li a:active {
-  color: rgb(70, 70, 70);
-  text-decoration: none;
+
+nav > ul > li > a:hover,
+nav > ul > li > a:active {
+  color: black;
 }
-a:link,
-a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
+
+header > hgroup > h1 {
+  font-size: calc(32 * var(--cmpx));
 }
-header,
-main {
-  width: 50rem;
-  margin: 0 auto;
+
+header > hgroup > h1 + p {
+  margin-block-start: calc(12 * var(--cmpx));
 }
+
+header > hgroup > p {
+  font-size: calc(18 * var(--cmpx));
+  font-style: italic;
+}
+
+header + main {
+  margin-block-start: calc(48 * var(--mpx));
+}
+
+wrapper-block {
+  display: block;
+}
+
+body > wrapper-block {
+  margin-block-start: calc(32 * var(--cmpx));
+  max-inline-size: calc(700 * var(--cmpx));
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+:is(main, article) > * + :is(dd, dt, figcaption, h1, h2, h3, h4, h5, h6, hgroup, hr, li, p, blockquote) {
+  margin-block-start: calc(24 * var(--mpx));
+}
+
 main .smid {
   text-align: right;
 }
-.preview p,
+
 article p {
-  text-indent: 2rem;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 1rem 0 1rem 0;
-  text-align: left;
+  text-indent: 4ch;
 }
 
 .toy {
@@ -83,11 +112,18 @@ p {
 .toy button {
   margin: 0.5rem 0.5rem;
 }
+
 .preview {
-  margin: 1rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  box-shadow: 0 2px 4px 0 pink;
 }
+
 .preview .nDate {
   text-align: right;
+}
+
+a {
+  color: var(--dark);
 }
 
 img {
