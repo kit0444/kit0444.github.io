@@ -33,7 +33,6 @@ nav li {
 }
 
 nav li a {
-  display: inline;
   padding: 1rem;
   text-align: left;
 }
