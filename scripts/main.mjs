@@ -28,8 +28,10 @@ const matchingSiblingElement = function (maybeMatchingSiblingElement, selector) 
                                     inputValidationProgressElement.textContent = ' ';
 
                                     inputErrorElement.classList.remove('input_inputEnded__error');
+                                    inputErrorElement.classList.remove('input_inputInvalid__error');
 
                                     inputSubmitButtonElement.disabled = inputElement.parentElement.querySelector('input:invalid:required');
+                                    inputElement.closest('.toy').querySelector('.result').textContent = ' ';
 
                                     setTimeout(() => {
                                       inputElement.classList.add('input_inputEnded');
@@ -38,6 +40,11 @@ const matchingSiblingElement = function (maybeMatchingSiblingElement, selector) 
                                     inputValidationProgressElement.textContent = inputElement.checkValidity() ? '✓' : '✗';
 
                                     inputErrorElement.classList.add('input_inputEnded__error');
+
+                                    inputElement.checkValidity() || (() => {
+                                      inputErrorElement.classList.add('input_inputInvalid__error');
+                                    })();
+
                                     }, 500);
                                   })();
                                 }
@@ -53,11 +60,13 @@ document.querySelector('#UA button')
 // BMI
 const bmiFormButton = document.querySelector('#BMI > form > button');
 
-bmiFormButton.addEventListener('click', () => {
+bmiFormButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
           document.querySelector('#BMI > form input:invalid:required') || (() => {
             const height = document.querySelector('#BMI_height__input').value;
             const weight = document.querySelector('#BMI_weight__input').value;
-            document.querySelector('#BMI .result').textContent = `${weight / ((height / 100) * (height / 100))}`;
+            document.querySelector('#BMI .result').textContent = `${weight / ((height / 100) ** 2)}`;
           })();
         });
 
