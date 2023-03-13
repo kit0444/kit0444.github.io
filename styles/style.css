@@ -92,7 +92,7 @@ body > wrapper-block {
   padding-inline: 16px;
 }
 
-:is(main, article) > * + :is(dd, dt, figcaption, h1, h2, h3, h4, h5, h6, hgroup, hr, li, p, blockquote) {
+:is(main, article) > * + :is(dd, dt, figcaption, h1, h2, h3, h4, h5, h6, hgroup, hr, li, p, blockquote, article) {
   margin-block-start: calc(24 * var(--mpx));
 }
 
@@ -105,17 +105,83 @@ article p {
 }
 
 .toy {
-  margin: 1rem 1rem 1rem 1rem;
+  /* margin: 1rem 1rem 1rem 1rem; */
 }
 
 .toy input,
 .toy button {
-  margin: 0.5rem 0.5rem;
+  /* margin: 0.5rem 0.5rem; */
 }
 
-.preview {
+.input__validationProgress {
+  display: inline-block;
+  inline-size: calc(32 * var(--cmpx));
+  block-size: calc(32 * var(--cmpx));
+  /* background-color: black; */
+  background-image: radial-gradient(circle calc(14 * var(--cmpx)), white 100%, transparent 100%),
+                    conic-gradient(white, white 25%, black);
+
+  border-radius: 100%;
+  border-width: calc(2 * var(--cmpx));
+  border-style: solid;
+  border-color: white;
+  will-change: transform, opacity, border, color;
+
+  opacity: 0;
+
+  color: black;
+  font-size: calc(20 * var(--cmpx));
+  font-weight: 900;
+  line-height: calc(32 * var(--cmpx));
+  text-align: center;
+}
+
+.input__validationProgress.input_inputEnded__validationProgress {
+  transform: rotate(360deg);
+  opacity: revert;
+
+  transition-property: transform, opacity, border;
+  transition-duration: 500ms, 0ms, 500ms;
+  transition-delay: 500ms, 500ms, 1000ms;
+
+  border-color: black;
+}
+
+.input__error {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Class "input_inputEnded" To be added when the user first starts to input a value. */
+input.input_inputEnded:invalid {
+  transition-property: background-color;
+  transition-delay: 500ms;
+  background-color: pink;
+}
+
+input.input_inputEnded:invalid ~ .input__error.input_inputEnded__error {
+  visibility: revert;
+
+  transition-property: opacity;
+  transition-delay: 500ms;
+  opacity: revert;
+}
+
+input {
+  block-size: calc(32 * var(--cmpx));
+}
+
+button:disabled {
+  color: gray;
+}
+
+:is(.preview, .toy) {
   padding: 1rem 1rem 1rem 1rem;
-  box-shadow: 0 2px 4px 0 pink;
+  box-shadow: 0 1px 4px 1px pink;
+}
+
+.preview > :is(h1, h2, h3, h4, h5, h6, hgroup) a {
+  text-decoration-line: none;
 }
 
 .preview .nDate {
