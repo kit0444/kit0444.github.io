@@ -9,7 +9,7 @@
 
   --mpx: min(calc(1rem / 16), 2px);
   --cmpx: clamp(1px, calc(1rem / 16), 2px);
-  --wpx: calc(1vw / 6);
+  --wpx: calc(1vw / 8);
   --vpx: calc(1vh / 16);
 
   --dark: rgb(32, 32, 32);
@@ -35,8 +35,7 @@ nav {
 }
 
 nav > ul {
-  /* block-size: clamp(calc(50 * var(--cmpx)), calc(100 * var(--cmpx)), 10vh); */
-  padding-block: clamp(16px, 32 * var(--cmpx), calc(32 * var(--vpx)));
+  padding-block: clamp(16px, 32 * var(--cmpx), calc(32 * var(--wpx)));
   list-style-type: none;
   max-inline-size: calc(700 * var(--cmpx));
   margin-inline: auto;
@@ -93,7 +92,7 @@ wrapper-block {
 }
 
 body > wrapper-block {
-  margin-block-start: clamp(calc(16 * var(--cmpx)), calc(32 * var(--cmpx)), calc(32 * var(--vpx)));
+  margin-block-start: clamp(calc(16 * var(--cmpx)), calc(32 * var(--cmpx)), calc(32 * var(--wpx)));
   max-inline-size: calc(700 * var(--cmpx));
   margin-inline: auto;
   padding-inline: 16px;
@@ -166,7 +165,7 @@ input.input_inputEnded:invalid {
   background-color: pink;
 }
 
-input.input_inputEnded:invalid ~ .input__error.input_inputEnded__error {
+.input__error.input_inputEnded__error.input_inputInvalid__error {
   visibility: revert;
 
   transition-property: opacity;
