@@ -9,6 +9,9 @@
 
   --mpx: min(calc(1rem / 16), 2px);
   --cmpx: clamp(1px, calc(1rem / 16), 2px);
+  --wpx: calc(1vw / 8);
+  --vpx: calc(1vh / 16);
+
   --dark: rgb(32, 32, 32);
   --light: rgb(224, 224, 224);
 }
@@ -29,11 +32,10 @@ body {
 }
 
 nav {
-  block-size: calc(100 * var(--cmpx));
 }
 
 nav > ul {
-  block-size: 100%;
+  padding-block: clamp(16px, 32 * var(--cmpx), calc(32 * var(--wpx)));
   list-style-type: none;
   max-inline-size: calc(700 * var(--cmpx));
   margin-inline: auto;
@@ -42,10 +44,14 @@ nav > ul {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  column-gap: calc(12 * var(--cmpx));
+  row-gap: calc(16 * var(--cmpx));
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 nav > ul > li {
-  font-size: calc(24 * var(--cmpx));
+  font-size: clamp(calc(17 * var(--cmpx)), calc(24 * var(--cmpx)), calc(24 * var(--wpx)));
   display: inline;
 }
 
@@ -86,7 +92,7 @@ wrapper-block {
 }
 
 body > wrapper-block {
-  margin-block-start: calc(32 * var(--cmpx));
+  margin-block-start: clamp(calc(16 * var(--cmpx)), calc(32 * var(--cmpx)), calc(32 * var(--wpx)));
   max-inline-size: calc(700 * var(--cmpx));
   margin-inline: auto;
   padding-inline: 16px;
@@ -159,7 +165,7 @@ input.input_inputEnded:invalid {
   background-color: pink;
 }
 
-input.input_inputEnded:invalid ~ .input__error.input_inputEnded__error {
+.input__error.input_inputEnded__error.input_inputInvalid__error {
   visibility: revert;
 
   transition-property: opacity;
