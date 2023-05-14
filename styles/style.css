@@ -1,211 +1,263 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    color-scheme: light dark;
+  
+    --mpx: min(calc(1rem / 16), 2px);
+    --cmpx: clamp(1px, calc(1rem / 16), 2px);
+    --wpx: calc(1vw / 8);
+    --vpx: calc(1vh / 16);
+  
+    --dark: rgb(32, 32, 32);
+    --light: rgb(224, 224, 224);
 
-:root {
-  color-scheme: light dark;
-
-  --mpx: min(calc(1rem / 16), 2px);
-  --cmpx: clamp(1px, calc(1rem / 16), 2px);
-  --wpx: calc(1vw / 8);
-  --vpx: calc(1vh / 16);
-
-  --dark: rgb(32, 32, 32);
-  --light: rgb(224, 224, 224);
-}
-
-body {
-  background-image: linear-gradient(pink, white);
-  background-repeat: no-repeat;
-  /* background-position: top; */
-  background-size: auto calc(150 * var(--cmpx));
-}
-
-
-
-nav {
-}
-
-nav > ul {
-  padding-block: clamp(16px, 32 * var(--cmpx), calc(32 * var(--wpx)));
-  list-style-type: none;
-  max-inline-size: calc(700 * var(--cmpx));
-  margin-inline: auto;
-  padding-inline: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: calc(12 * var(--cmpx));
-  row-gap: calc(16 * var(--cmpx));
-  align-content: center;
-  flex-wrap: wrap;
-}
-
-nav > ul > li {
-  font-size: clamp(calc(17 * var(--cmpx)), calc(24 * var(--cmpx)), calc(24 * var(--wpx)));
-  display: inline;
-}
-
-nav > ul > li > a {
-  text-decoration: none;
-}
-
-nav > ul > li > a:hover {
-  background-color: white;
-  box-shadow: 0 0 0 0.5rem white;
-}
-
-nav > ul > li > a:hover,
-nav > ul > li > a:active {
-  color: black;
-}
-
-header > hgroup > h1 {
-  font-size: calc(32 * var(--cmpx));
-}
-
-header > hgroup > h1 + p {
-  margin-block-start: calc(12 * var(--cmpx));
-}
-
-header > hgroup > p {
-  font-size: calc(18 * var(--cmpx));
-  font-style: italic;
-}
-
-header + main {
-  margin-block-start: calc(48 * var(--mpx));
-}
-
-wrapper-block {
-  display: block;
-}
-
-body > wrapper-block {
-  margin-block-start: clamp(calc(16 * var(--cmpx)), calc(32 * var(--cmpx)), calc(32 * var(--wpx)));
-  max-inline-size: calc(700 * var(--cmpx));
-  margin-inline: auto;
-  padding-inline: 16px;
-}
-
-:is(main, article) > * + :is(dd, dt, figcaption, h1, h2, h3, h4, h5, h6, hgroup, hr, li, p, blockquote, article) {
-  margin-block-start: calc(24 * var(--mpx));
-}
-
-main .smid {
-  text-align: right;
-}
-
-article p {
-  text-indent: 4ch;
-}
-
-.toy {
-  /* margin: 1rem 1rem 1rem 1rem; */
-}
-
-.toy input,
-.toy button {
-  /* margin: 0.5rem 0.5rem; */
-}
-
-.input__validationProgress {
-  display: inline-block;
-  inline-size: calc(32 * var(--cmpx));
-  block-size: calc(32 * var(--cmpx));
-  /* background-color: black; */
-  background-image: radial-gradient(circle calc(14 * var(--cmpx)), white 100%, transparent 100%),
-                    conic-gradient(white, white 25%, black);
-
-  border-radius: 100%;
-  border-width: calc(2 * var(--cmpx));
-  border-style: solid;
-  border-color: white;
-  will-change: transform, opacity, border, color;
-
-  opacity: 0;
-
-  color: black;
-  font-size: calc(20 * var(--cmpx));
-  font-weight: 900;
-  line-height: calc(32 * var(--cmpx));
-  text-align: center;
-}
-
-.input__validationProgress.input_inputEnded__validationProgress {
-  transform: rotate(360deg);
-  opacity: revert;
-
-  transition-property: transform, opacity, border;
-  transition-duration: 500ms, 0ms, 500ms;
-  transition-delay: 500ms, 500ms, 1000ms;
-
-  border-color: black;
-}
-
-.input__error {
-  visibility: hidden;
-  opacity: 0;
-}
-
-/* Class "input_inputEnded" To be added when the user first starts to input a value. */
-input.input_inputEnded:invalid {
-  transition-property: background-color;
-  transition-delay: 500ms;
-  background-color: pink;
-}
-
-.input__error.input_inputEnded__error.input_inputInvalid__error {
-  visibility: revert;
-
-  transition-property: opacity;
-  transition-delay: 500ms;
-  opacity: revert;
-}
-
-input {
-  block-size: calc(32 * var(--cmpx));
-}
-
-button:disabled {
-  color: gray;
-}
-
-:is(.preview, .toy) {
-  padding: 1rem 1rem 1rem 1rem;
-  box-shadow: 0 1px 4px 1px pink;
-}
-
-.preview > :is(h1, h2, h3, h4, h5, h6, hgroup) a {
-  text-decoration-line: none;
-}
-
-.preview .nDate {
-  text-align: right;
-}
-
-a {
-  color: var(--dark);
-}
-
-img {
-  width: 70%;
-}
-
-.pcenter {
-  text-align: center;
-}
-
-@media (prefers-color-scheme: dark) {
+    --main-bg-color: #ffe7f4;
+    --color-1:#0F217799;
+    --color-2:#74BDD599;
+    --color-3:#62accc99;
+    --color-4:#81dbc899;
+    --color-5:#94b0ba99;
+    --content-bg-color: #FFFFFF;
+  }
+  
   body {
-    background-image: none;
-    background-color: var(--dark);
-    color: var(--light);
+    background-image: 
+      linear-gradient(to right, transparent, transparent 46%, var(--color-1) 46%, var(--color-1) 47%, transparent 47%, transparent),
+      linear-gradient(to bottom, transparent, transparent 46%, var(--color-1) 46%, var(--color-1) 47%, transparent 47%, transparent),
+      linear-gradient(to right, transparent, transparent 25%, var(--color-2) 25%, var(--color-2) 26%, transparent 26%, transparent),
+      linear-gradient(to bottom, transparent, transparent 25%, var(--color-2) 25%, var(--color-2) 26%, transparent 26%, transparent),
+      linear-gradient(to right, transparent, transparent 27%, var(--color-2) 27%, var(--color-2) 42%, transparent 42%, transparent),
+      linear-gradient(to bottom, transparent, transparent 27%, var(--color-2) 27%, var(--color-2) 42%, transparent 42%, transparent),
+      linear-gradient(to right, transparent, transparent 12%, var(--color-3) 12%, var(--color-3) 14%, transparent 14%, transparent),
+      linear-gradient(to bottom, transparent, transparent 12%, var(--color-3) 12%, var(--color-3) 14%, transparent 14%, transparent),
+      linear-gradient(to right, transparent, transparent 50%, var(--color-4) 50%, var(--color-4) 55%, transparent 55%, transparent),
+      linear-gradient(to bottom, transparent, transparent 50%, var(--color-4) 50%, var(--color-4) 55%, transparent 55%, transparent),
+      linear-gradient(to right, transparent, transparent 18%, var(--color-5) 18%, var(--color-5) 19%, transparent 19%, transparent),
+      linear-gradient(to bottom, transparent, transparent 18%, var(--color-5) 18%, var(--color-5) 19%, transparent 19%, transparent),
+      linear-gradient(to right, transparent, transparent 75%, var(--color-5) 75%, var(--color-5) 76%, transparent 76%, transparent),
+      linear-gradient(to bottom, transparent, transparent 75%, var(--color-5) 75%, var(--color-5) 76%, transparent 76%, transparent),
+      linear-gradient(to bottom, var(--main-bg-color), var(--main-bg-color) 100%);
+    background-size: 15rem 15rem;
   }
+  
+  
+  
+  nav {
+  }
+  
+  nav > ul {
+    padding-block: clamp(16px, 32 * var(--cmpx), calc(32 * var(--wpx)));
+    list-style-type: none;
+    max-inline-size: calc(700 * var(--cmpx));
+    margin-inline: auto;
+    padding-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    column-gap: calc(12 * var(--cmpx));
+    row-gap: calc(16 * var(--cmpx));
+
+
+  }
+  
+  nav > ul > li {
+    font-size: clamp(calc(17 * var(--cmpx)), calc(24 * var(--cmpx)), calc(24 * var(--wpx)));
+    margin: 0.1rem;
+    
+  }
+  
+  nav > ul > li > a {
+    text-decoration: none;
+    background-color: var(--content-bg-color);
+    box-shadow: 0 0 0 0.4rem var(--content-bg-color);
+  }
+  
+  nav > ul > li > a:hover {
+    background-color: var(--main-bg-color);
+    box-shadow: 0 0 0 0.4rem var(--main-bg-color);
+    
+  }
+  
+  nav > ul > li > a:hover,
+  nav > ul > li > a:active {
+    
+  }
+  
+  header {
+    background-color: var(--content-bg-color);
+    padding: 0.5rem;
+    border: 0.5rem double var(--color-3);
+  }
+
+  header > hgroup > h1 {
+    font-size: calc(32 * var(--cmpx));
+  }
+  
+  header > hgroup > h1,
+  header > hgroup > p {
+    margin: 1rem;
+  }
+  
+  header > hgroup > p {
+    font-size: calc(18 * var(--cmpx));
+    font-style: italic;
+
+  }
+  
+  header + main {
+    margin-block-start: calc(48 * var(--mpx));
+  }
+  
+  wrapper-block {
+    display: block;
+  }
+  
+  body > wrapper-block {
+    margin-block-start: clamp(calc(16 * var(--cmpx)), calc(32 * var(--cmpx)), calc(32 * var(--wpx)));
+    max-inline-size: calc(700 * var(--cmpx));
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  
+  :is(main, article) > * + :is(dd, dt, figcaption, h1, h2, h3, h4, h5, h6, hgroup, hr, li, p, blockquote, article) {
+    margin-block-start: calc(24 * var(--mpx));
+  }
+  
+  main .smid {
+    text-align: right;
+  }
+  
+  main > article {
+    padding-top: 1rem;
+    margin: 0 auto;
+    border-color: var(--main-bg-color);
+    width: 90%;
+  }
+
+  article p {
+    text-indent: 4ch;
+  }
+  
+  .toy {
+    /* margin: 1rem 1rem 1rem 1rem; */
+  }
+  
+  .toy input,
+  .toy button {
+    /* margin: 0.5rem 0.5rem; */
+  }
+  
+  .input__validationProgress {
+    display: inline-block;
+    inline-size: calc(32 * var(--cmpx));
+    block-size: calc(32 * var(--cmpx));
+    /* background-color: black; */
+    background-image: radial-gradient(circle calc(14 * var(--cmpx)), white 100%, transparent 100%),
+                      conic-gradient(white, white 25%, black);
+  
+    border-radius: 100%;
+    border-width: calc(2 * var(--cmpx));
+    border-style: solid;
+    border-color: white;
+    will-change: transform, opacity, border, color;
+  
+    opacity: 0;
+  
+    color: black;
+    font-size: calc(20 * var(--cmpx));
+    font-weight: 900;
+    line-height: calc(32 * var(--cmpx));
+    text-align: center;
+  }
+  
+  .input__validationProgress.input_inputEnded__validationProgress {
+    transform: rotate(360deg);
+    opacity: revert;
+  
+    transition-property: transform, opacity, border;
+    transition-duration: 500ms, 0ms, 500ms;
+    transition-delay: 500ms, 500ms, 1000ms;
+  
+    border-color: black;
+  }
+  
+  .input__error {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  /* Class "input_inputEnded" To be added when the user first starts to input a value. */
+  input.input_inputEnded:invalid {
+    transition-property: background-color;
+    transition-delay: 500ms;
+    background-color: pink;
+  }
+  
+  .input__error.input_inputEnded__error.input_inputInvalid__error {
+    visibility: revert;
+  
+    transition-property: opacity;
+    transition-delay: 500ms;
+    opacity: revert;
+  }
+  
+  input {
+    block-size: calc(32 * var(--cmpx));
+  }
+  
+  button:disabled {
+    color: gray;
+  }
+  
+  :is(.preview, .toy) {
+    padding: 1rem 1rem 1rem 1rem;
+    border-bottom: thick solid var(--color-3);
+  }
+  
+  .preview > :is(h1, h2, h3, h4, h5, h6, hgroup) a {
+    text-decoration-line: none;
+  }
+  
+  .preview .nDate {
+    text-align: right;
+  }
+  
   a {
-    color: var(--light);
+    color: var(--dark);
   }
-}
+  
+  img {
+    width: 70%;
+  }
+  
+  .pcenter {
+    text-align: center;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --content-bg-color: var(--dark);
+    }
+    body {
+      background-image: none;
+      background-color: var(--dark);
+      color: var(--light);
+    }
+    nav > ul > li > a:hover {
+      color: var(--dark)
+    }
+    a {
+      color: var(--light);
+    }
+  }
+
+  main {
+    padding: 1rem;
+    background-color: var(--content-bg-color);
+    border: 0.5rem double var(--color-3);
+  }
